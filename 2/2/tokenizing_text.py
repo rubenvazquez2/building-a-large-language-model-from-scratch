@@ -31,7 +31,6 @@ if __name__ == "__main__":
     logger.info("Total number of characters: %d", len(raw_text))
     logger.info("%s", raw_text[:99])
 
-    text = "Hello, world. Is this-- a test?"
-    result = re.split(r'([,.:;?_!"()\']|--|\s)', text)
-    result = [item for item in result if item.split()]
-    logger.info(result)
+    preprocessed = re.split(r'([,.:;?_!"()\']|--|\s)', raw_text)
+    preprocessed = [item for item in preprocessed if item.split()]
+    logger.info(len(preprocessed))
