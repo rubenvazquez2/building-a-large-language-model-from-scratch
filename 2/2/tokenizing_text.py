@@ -4,7 +4,7 @@ Description: Module with logic from section 2.2 of Building a Large Language Mod
 """
 
 from urllib import request
-import logging
+import logging, re
 
 logger = logging.getLogger("tokenizing_text")
 logger.setLevel(logging.DEBUG)
@@ -30,3 +30,8 @@ if __name__ == "__main__":
         raw_text = fp.read()
     logger.info("Total number of characters: %d", len(raw_text))
     logger.info("%s", raw_text[:99])
+
+    text = "Hello, world. Is this-- a test?"
+    result = re.split(r'([,.:;?_!"()\']|--|\s)', text)
+    result = [item for item in result if item.split()]
+    logger.info(result)
